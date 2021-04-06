@@ -2,6 +2,7 @@ import stddraw # the stddraw module is used as a basic graphics library
 from color import Color # used for coloring the tile and the number on it
 from point import Point # used for representing the position of the tile
 import copy as cp # the copy module is used for copying tile positions
+from random import randint
 import math # math module that provides mathematical functions
 
 # Class used for representing numbered tiles as in 2048
@@ -16,9 +17,16 @@ class Tile:
    # Constructor that creates a tile at a given position with 2 as its number 
    def __init__(self, position = Point(0, 0)): # (0, 0) is the default position
       # assign the number on the tile
-      self.number = 2
+      self.number = 2**randint(1,3)
       # set the colors of the tile
-      self.background_color = Color(151, 178, 199) # background (tile) color
+      if (self.number == 2):
+         self.background_color = Color(151, 178, 199) # background (tile) color
+      if (self.number == 4):
+         self.background_color = Color(101, 208, 240)  # background (tile) color
+      if (self.number == 8):
+         self.background_color = Color(191, 78, 99)  # background (tile) color
+      #add more colors
+
       self.foreground_color = Color(0, 100, 200) # foreground (number) color
       self.boundary_color = Color(0, 100, 200) # boundary (box) color
       # set the position of the tile as the given position
