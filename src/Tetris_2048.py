@@ -37,13 +37,17 @@ def start():
          # if the left arrow key has been pressed
          if key_typed == "left":
             # move the tetromino left by one
+            print("Left Typed")
             current_tetromino.move(key_typed, grid) 
          # if the right arrow key has been pressed
          elif key_typed == "right":
+            print("Right Typed")
             # move the tetromino right by one
             current_tetromino.move(key_typed, grid)
          # if the down arrow key has been pressed
          elif key_typed == "down":
+            print("Down Typed")
+
             # move the tetromino down by one 
             # (causes the tetromino to fall down faster)
             current_tetromino.move(key_typed, grid)
@@ -75,7 +79,7 @@ def start():
 # Function for creating random shaped tetrominoes to enter the game grid
 def create_tetromino(grid_height, grid_width):
    # type (shape) of the tetromino is determined randomly
-   tetromino_types = [ 'I', 'O', 'Z' ]
+   tetromino_types = [ 'I', 'O', 'Z', "S", "T","J"]
    random_index = random.randint(0, len(tetromino_types) - 1)
    random_type = tetromino_types[random_index]
    # create and return the tetromino
