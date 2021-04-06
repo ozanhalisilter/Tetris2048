@@ -8,6 +8,7 @@ print("sa")
 class Tetromino:
    # Constructor to create a tetromino with a given type (shape)
    def __init__(self, type, grid_height, grid_width):
+      print("Tetromino creating")
       # set grid_height and grid_width from input parameters
       self.grid_height = grid_height
       self.grid_width = grid_width
@@ -16,6 +17,7 @@ class Tetromino:
       if type == 'I':
          n = 4  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino I in its initial orientation
+         print("\t\tI Created")
          occupied_tiles.append((1, 0)) # (column_index, row_index)
          occupied_tiles.append((1, 1))
          occupied_tiles.append((1, 2))
@@ -27,7 +29,7 @@ class Tetromino:
          occupied_tiles.append((1, 0))
          occupied_tiles.append((0, 1))
          occupied_tiles.append((1, 1))
-
+         print("\t\tO Created")
       elif type == 'Z':
          n = 3  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino Z in its initial orientation
@@ -35,6 +37,7 @@ class Tetromino:
          occupied_tiles.append((1, 0))
          occupied_tiles.append((1, 1))
          occupied_tiles.append((2, 1))
+         print("\t\tZ Created")
       elif type == 'S':
          n = 3  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino Z in its initial orientation
@@ -42,8 +45,16 @@ class Tetromino:
          occupied_tiles.append((1, 0))
          occupied_tiles.append((1, 1))
          occupied_tiles.append((2, 0))
+         print("\t\tS Created")
       #T
-
+      elif type == 'L':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((1, 0))
+         occupied_tiles.append((1, 1))
+         occupied_tiles.append((1, 2))
+         occupied_tiles.append((2, 2))
+         print("\t\tJ Created")
       elif type == 'J':
          n = 3  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino Z in its initial orientation
@@ -51,7 +62,7 @@ class Tetromino:
          occupied_tiles.append((1, 1))
          occupied_tiles.append((1, 2))
          occupied_tiles.append((0, 2))
-
+         print("\t\tJ Created")
       elif type == 'T':
          n = 3  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino Z in its initial orientation
@@ -59,7 +70,7 @@ class Tetromino:
          occupied_tiles.append((1, 1))
          occupied_tiles.append((2, 1))
          occupied_tiles.append((1, 2))
-
+         print("\t\tT Created")
 
      # create a matrix of numbered tiles based on the shape of the tetromino
       self.tile_matrix = np.full((n, n), None)
