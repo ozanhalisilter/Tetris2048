@@ -46,7 +46,6 @@ def start():
             current_tetromino.move(key_typed, grid)
          # if the down arrow key has been pressed
          elif key_typed == "down":
-            print("Down Typed")
 
             # move the tetromino down by one 
             # (causes the tetromino to fall down faster)
