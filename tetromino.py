@@ -54,7 +54,7 @@ class Tetromino:
          occupied_tiles.append((1, 1))
          occupied_tiles.append((1, 2))
          occupied_tiles.append((2, 2))
-         print("\t\tJ Created")
+         print("\t\tL Created")
       elif type == 'J':
          n = 3  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino Z in its initial orientation
