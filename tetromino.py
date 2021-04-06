@@ -26,15 +26,42 @@ class Tetromino:
          occupied_tiles.append((0, 0)) 
          occupied_tiles.append((1, 0))
          occupied_tiles.append((0, 1))
-         occupied_tiles.append((1, 1)) 
+         occupied_tiles.append((1, 1))
+
       elif type == 'Z':
          n = 3  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino Z in its initial orientation
-         occupied_tiles.append((0, 0)) 
+         occupied_tiles.append((0, 0))
          occupied_tiles.append((1, 0))
          occupied_tiles.append((1, 1))
-         occupied_tiles.append((2, 1))  
-      # create a matrix of numbered tiles based on the shape of the tetromino
+         occupied_tiles.append((2, 1))
+      elif type == 'S':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((0, 1))
+         occupied_tiles.append((1, 0))
+         occupied_tiles.append((1, 1))
+         occupied_tiles.append((2, 0))
+      #T
+
+      elif type == 'J':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((1, 0))
+         occupied_tiles.append((1, 1))
+         occupied_tiles.append((1, 2))
+         occupied_tiles.append((0, 2))
+
+      elif type == 'T':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((0, 1))
+         occupied_tiles.append((1, 1))
+         occupied_tiles.append((2, 1))
+         occupied_tiles.append((1, 2))
+
+
+     # create a matrix of numbered tiles based on the shape of the tetromino
       self.tile_matrix = np.full((n, n), None)
       # initial position of the bottom-left tile in the tile matrix just before 
       # the tetromino enters the game grid
