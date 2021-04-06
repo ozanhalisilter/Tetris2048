@@ -1,3 +1,4 @@
+import math
 import random # each tetromino is created with a random x value above the grid
 from tile import Tile # used for representing each tile on the tetromino
 from point import Point # used for tile positions
@@ -46,7 +47,6 @@ class Tetromino:
          occupied_tiles.append((1, 1))
          occupied_tiles.append((2, 0))
          print("\t\tS Created")
-      #T
       elif type == 'L':
          n = 3  # n = number of rows = number of columns in the tile matrix
          # shape of the tetromino Z in its initial orientation
@@ -131,7 +131,13 @@ class Tetromino:
                else: # direction == "down"
                   self.tile_matrix[row][col].move(0, -1)
       return True  # successful move in the given direction
-   
+   def rotate(self):
+      n = len(self.tile_matrix)
+      for row in range(n):
+         for col in range(n):
+            pass
+
+
    # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
