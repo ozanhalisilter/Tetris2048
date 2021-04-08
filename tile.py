@@ -17,6 +17,8 @@ class Tile:
    # Constructor that creates a tile at a given position with 2 as its number 
    def __init__(self, position = Point(0, 0)): # (0, 0) is the default position
       # assign the number on the tile
+      x=5
+      print(x)
       self.number = 2**randint(1,3)
       # set the colors of the tile
       if (self.number == 2):
