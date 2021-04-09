@@ -20,12 +20,32 @@ class Tile:
       self.number = 2**randint(1,3)
       # set the colors of the tile
       if (self.number == 2):
-         self.background_color = Color(151, 178, 199) # background (tile) color
+         self.background_color = Color(238, 228, 218) # background (tile) color
       if (self.number == 4):
-         self.background_color = Color(101, 208, 240)  # background (tile) color
+         self.background_color = Color(237, 224, 200)  # background (tile) color
       if (self.number == 8):
-         self.background_color = Color(191, 78, 99)  # background (tile) color
-      #add more colors
+         self.background_color = Color(242, 177, 121)  # background (tile) color
+      if (self.number == 16):
+         self.background_color = Color(245, 149, 99)  # background (tile) color
+      if (self.number == 32):
+         self.background_color = Color(246, 124, 95)  # background (tile) color
+      if (self.number == 64):
+         self.background_color = Color(246, 94, 59)  # background (tile) color
+      if (self.number == 128):
+         self.background_color = Color(237, 207, 114)  # background (tile) color
+      if (self.number == 256):
+         self.background_color = Color(237, 204, 97)  # background (tile) color
+      if (self.number == 512):
+         self.background_color = Color(237, 200, 80)  # background (tile) color
+      if (self.number == 1024):
+         self.background_color = Color(237, 197, 63)  # background (tile) color
+      if (self.number == 2048):
+         self.background_color = Color(237, 194, 46)  # background (tile) color
+      #used proper colors until 2048
+      #used remainder in order to get a proper color for every number
+      #with this the value will never exceed 255 however better solution may be proposed
+      if (self.number > 2048):
+         self.background_color= Color((self.number%120),(self.number%10),(self.number%100))
 
       self.foreground_color = Color(0, 100, 200) # foreground (number) color
       self.boundary_color = Color(0, 100, 200) # boundary (box) color
