@@ -11,12 +11,12 @@ from color import Color # used for coloring the game menu
 # Main function where this program starts execution
 def start():
    # set the dimensions of the game grid
-   grid_h, grid_w = 20, 12
+   grid_h, grid_w = 18, 12
    # set the size of the drawing canvas
-   canvas_h, canvas_w = 40 * grid_h, 40 * grid_w
-   stddraw.setCanvasSize(canvas_w, canvas_h) 
+   canvas_h, canvas_w = 40 * grid_h, 60 * grid_w
+   stddraw.setCanvasSize(canvas_w, canvas_h)
    # set the scale of the coordinate system
-   stddraw.setXscale(-0.5, grid_w - 0.5)
+   stddraw.setXscale(-0.5, grid_w + 4.5)
    stddraw.setYscale(-0.5, grid_h - 0.5)
    
    # create the game grid
@@ -24,6 +24,9 @@ def start():
    # create the first tetromino to enter the game grid 
    # by using the create_tetromino function defined below
    current_tetromino = create_tetromino(grid_h, grid_w)
+   print("next tetromino:")
+   next_tetromino = create_tetromino(grid_h, grid_w)
+
    grid.current_tetromino = current_tetromino
 
    # display a simple menu before opening the game
@@ -70,8 +73,10 @@ def start():
             break
          # create the next tetromino to enter the game grid
          # by using the create_tetromino function defined below
-         current_tetromino = create_tetromino(grid_h, grid_w)
+         current_tetromino = next_tetromino
          grid.current_tetromino = current_tetromino
+         print("next tetromino:")
+         next_tetromino = create_tetromino(grid_h, grid_w)
 
       # display the game grid and as well the current tetromino      
       grid.display()
@@ -81,7 +86,7 @@ def start():
 # Function for creating random shaped tetrominoes to enter the game grid
 def create_tetromino(grid_height, grid_width):
    # type (shape) of the tetromino is determined randomly
-   tetromino_types = [ "S", "T","J",'L']
+   tetromino_types = [ "S", "T","J",'L','O','Z','I']
    random_index = random.randint(0, len(tetromino_types) - 1)
    random_type = tetromino_types[random_index]
    # create and return the tetromino
