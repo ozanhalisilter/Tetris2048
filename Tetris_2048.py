@@ -34,6 +34,7 @@ def start():
    
    # main game loop (keyboard interaction for moving the tetromino) 
    while True:
+
       # check user interactions via the keyboard
       if stddraw.hasNextKeyTyped():
          key_typed = stddraw.nextKeyTyped()
@@ -59,8 +60,10 @@ def start():
          # clear the queue that stores all the keys pressed/typed
          stddraw.clearKeysTyped()
 
+
       # move (drop) the tetromino down by 1 at each iteration 
       success = current_tetromino.move("down", grid)
+
 
       # place the tetromino on the game grid when it cannot go down anymore
       if not success:
@@ -101,6 +104,7 @@ def display_game_menu(grid_height, grid_width):
    text_color = Color(31, 160, 239)
    # clear the background canvas to background_color
    stddraw.clear(background_color)
+
    # get the directory in which this python code file is placed
    current_dir = os.path.dirname(os.path.realpath(__file__))
    # path of the image file

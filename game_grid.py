@@ -28,6 +28,9 @@ class GameGrid:
    def display(self):
       # clear the background canvas to empty_cell_color
       stddraw.clear(self.empty_cell_color)
+      stddraw.setFontSize(24)
+      stddraw.setPenColor(stddraw.WHITE)
+      stddraw.text(self.grid_width+2, self.grid_height-12 , "next")
       # draw the game grid
       self.draw_grid()
       # draw the current (active) tetromino
