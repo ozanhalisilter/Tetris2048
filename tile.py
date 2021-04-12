@@ -45,7 +45,7 @@ class Tile:
       #used remainder in order to get a proper color for every number
       #with this the value will never exceed 255 however better solution may be proposed
       if (self.number > 2048):
-         self.background_color= Color((self.number%120),(self.number%10),(self.number%100))
+         self.background_color= Color((self.number%255),(self.number%20),(self.number%255))
 
       self.foreground_color = Color(0, 100, 200) # foreground (number) color
       self.boundary_color = Color(0, 100, 200) # boundary (box) color
