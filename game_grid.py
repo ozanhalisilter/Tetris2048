@@ -32,6 +32,7 @@ class GameGrid:
       stddraw.setFontSize(24)
       stddraw.setPenColor(stddraw.WHITE)
       stddraw.text(self.grid_width+2, self.grid_height-12 , "next")
+
       stddraw.square(self.grid_width+2,self.grid_height-15,2)
       # draw the game grid
       self.next_tetromino.draw_dummy()
