@@ -114,6 +114,7 @@ class GameGrid:
                   self.game_over = True
       # return the game_over flag
       self.check_grid()
+      self.merge()
       return self.game_over
 
    def check_grid(self):
@@ -123,6 +124,7 @@ class GameGrid:
             self.delete_row(row)
             self.move_row(row)
             self.check_grid()
+
 
 
    def delete_row(self,row):
@@ -139,3 +141,15 @@ class GameGrid:
          for col_i in range(self.grid_width):
             if self.tile_matrix[row_i][col_i] != None:
                self.tile_matrix[row_i][col_i].move(0,-1)
+
+
+   def merge(self):
+      for row_i in range(self.grid_height-1):
+         for col_i in range(self.grid_width ):
+            if self.tile_matrix[row_i][col_i] != None and self.tile_matrix[row_i+1][col_i] != None:
+               if self.tile_matrix[row_i][col_i].number == self.tile_matrix[row_i+1][col_i].number:
+                  self.tile_matrix[row_i][col_i].double()
+                  self.tile_matrix[row_i+1][col_i] = None
+                  print('------------------------------------')
+                  print(row_i,col_i,self.tile_matrix[row_i][col_i].number)
+                  self.merge()
