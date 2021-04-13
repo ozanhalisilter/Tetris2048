@@ -127,7 +127,7 @@ class GameGrid:
       print("----------BEFORE----------")
       print(self.tile_matrix)
       self.tile_matrix = np.delete(self.tile_matrix,row,axis=0)
-      self.tile_matrix = np.append(self.tile_matrix, np.full(self.grid_width,[None]),axis=0)
+      self.tile_matrix = np.append(self.tile_matrix, np.reshape(np.full(self.grid_width,[None]),(-1,self.grid_width)),axis=0)
       print("----------AFTER------------")
       print(self.tile_matrix)
       print("------------------------------")
