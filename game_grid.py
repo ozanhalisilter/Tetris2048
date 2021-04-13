@@ -99,7 +99,8 @@ class GameGrid:
    # topmost game grid row. The method returns True when the game is over and
    # False otherwise.
    def update_grid(self, tiles_to_place):
-      # place all the tiles of the stopped tetromino onto the game grid 
+      # place all the tiles of the stopped tetromino onto the game grid
+
       n_rows, n_cols = len(tiles_to_place), len(tiles_to_place[0])
       for col in range(n_cols):
          for row in range(n_rows):            
@@ -112,4 +113,27 @@ class GameGrid:
                else:
                   self.game_over = True
       # return the game_over flag
+      self.check_grid()
       return self.game_over
+
+   def check_grid(self):
+      print(self.tile_matrix)
+      for row in range(self.grid_width):
+         if None not in self.tile_matrix[row]:
+            self.delete_row(row)
+            self.move_row(row)
+
+   def delete_row(self,row):
+      print("----------BEFORE----------")
+      print(self.tile_matrix)
+      self.tile_matrix = np.delete(self.tile_matrix,row,axis=0)
+      self.tile_matrix = np.append(self.tile_matrix, np.full(self.grid_width,[None]),axis=0)
+      print("----------AFTER------------")
+      print(self.tile_matrix)
+      print("------------------------------")
+
+   def move_row(self,row):
+      for row_i in range(row,self.grid_height):
+         for col_i in range(self.grid_width):
+            if self.tile_matrix[row_i][col_i] != None:
+               self.tile_matrix[row_i][col_i].move(0,-1)

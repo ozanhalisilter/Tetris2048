@@ -108,7 +108,7 @@ class Tetromino:
                   self.tile_matrix[row][col].draw()
    def draw_dummy(self):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
-      print(self.type)
+
       for row in range(n):
          for col in range(n):
             # draw each occupied tile (not equal to None) on the game grid
@@ -117,7 +117,7 @@ class Tetromino:
 
                   dummy = Tile(Point(self.grid_width+col+1,self.grid_height-row-14))
                   dummy.number =  self.tile_matrix[row][col].number
-                  print(dummy.number)
+
                   dummy.draw()
 
    # Method for moving the tetromino in a given direction by 1 on the game grid

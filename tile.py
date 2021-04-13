@@ -25,7 +25,8 @@ class Tile:
       self.boundary_color = Color(0, 100, 200) # boundary (box) color
       # set the position of the tile as the given position
       self.position = Point(position.x, position.y)
-
+   def __repr__(self):
+      return str(self.number)
    # Setter method for the position of the tile
    def set_position(self, position):
       # set the position of the tile as the given position
