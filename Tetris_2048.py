@@ -60,6 +60,16 @@ def start():
             for i in range(grid_h):
                current_tetromino.move('down',grid)
 
+
+         # Speed Increase
+         elif key_typed=='w':
+            if grid.delta_time > 50:
+               grid.delta_time -= 40
+         # Speed Decrease
+         elif key_typed=='s':
+            if grid.delta_time > 50:
+               grid.delta_time += 40
+
          elif key_typed=='up':
             current_tetromino.rotate()
             print("up")

@@ -16,6 +16,7 @@ class GameGrid:
       self.next_tetromino = None
       # game_over flag shows whether the game is over/completed or not
       self.game_over = False
+      self.delta_time = 250
       # set the color used for the empty grid cells
       self.empty_cell_color = Color(42, 69, 99)
       # set the colors used for the grid lines and the grid boundaries
@@ -42,7 +43,7 @@ class GameGrid:
       # draw a box around the game grid 
       self.draw_boundaries()
       # show the resulting drawing with a pause duration = 250 ms
-      stddraw.show(250)
+      stddraw.show(self.delta_time)
          
    # Method for drawing the cells and the lines of the grid
    def draw_grid(self):
