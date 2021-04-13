@@ -55,6 +55,11 @@ def start():
             # move the tetromino down by one 
             # (causes the tetromino to fall down faster)
             current_tetromino.move(key_typed, grid)
+         # piece drop
+         elif key_typed =='space':
+            for i in range(grid_h):
+               current_tetromino.move('down',grid)
+
          elif key_typed=='up':
             current_tetromino.rotate()
             print("up")
