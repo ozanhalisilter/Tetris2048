@@ -13,6 +13,7 @@ class Tetromino:
       # set grid_height and grid_width from input parameters
       self.grid_height = grid_height
       self.grid_width = grid_width
+      self.type = type
       # set the shape of the tetromino based on the given type
       occupied_tiles = []
       if type == 'I':
@@ -105,7 +106,19 @@ class Tetromino:
                position = self.tile_matrix[row][col].get_position()
                if position.y < self.grid_height:
                   self.tile_matrix[row][col].draw()
+   def draw_dummy(self):
+      n = len(self.tile_matrix)  # n = number of rows = number of columns
+      print(self.type)
+      for row in range(n):
+         for col in range(n):
+            # draw each occupied tile (not equal to None) on the game grid
 
+            if self.tile_matrix[row][col] != None:
+
+                  dummy = Tile(Point(self.grid_width+col+1,self.grid_height-row-14))
+                  dummy.number =  self.tile_matrix[row][col].number
+                  print(dummy.number)
+                  dummy.draw()
 
    # Method for moving the tetromino in a given direction by 1 on the game grid
    def move(self, direction, game_grid):

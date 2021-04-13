@@ -19,6 +19,30 @@ class Tile:
       # assign the number on the tile
       self.number = 2**randint(1,3)
       # set the colors of the tile
+
+
+      self.foreground_color = Color(0, 100, 200) # foreground (number) color
+      self.boundary_color = Color(0, 100, 200) # boundary (box) color
+      # set the position of the tile as the given position
+      self.position = Point(position.x, position.y)
+
+   # Setter method for the position of the tile
+   def set_position(self, position):
+      # set the position of the tile as the given position
+      self.position = cp.copy(position) 
+
+   # Getter method for the position of the tile
+   def get_position(self):
+      # return the position of the tile
+      return cp.copy(self.position) 
+
+   # Method for moving the tile by dx along the x axis and by dy along the y axis
+   def move(self, dx, dy):
+      self.position.translate(dx, dy)
+
+   # Method for drawing the tile
+   def draw(self):
+      # draw the tile as a filled square
       if (self.number == 2):
          self.background_color = Color(238, 228, 218) # background (tile) color
       if (self.number == 4):
@@ -47,28 +71,6 @@ class Tile:
       if (self.number > 2048):
          self.background_color= Color((self.number%255),(self.number%20),(self.number%255))
 
-      self.foreground_color = Color(0, 100, 200) # foreground (number) color
-      self.boundary_color = Color(0, 100, 200) # boundary (box) color
-      # set the position of the tile as the given position
-      self.position = Point(position.x, position.y)
-
-   # Setter method for the position of the tile
-   def set_position(self, position):
-      # set the position of the tile as the given position
-      self.position = cp.copy(position) 
-
-   # Getter method for the position of the tile
-   def get_position(self):
-      # return the position of the tile
-      return cp.copy(self.position) 
-
-   # Method for moving the tile by dx along the x axis and by dy along the y axis
-   def move(self, dx, dy):
-      self.position.translate(dx, dy)
-
-   # Method for drawing the tile
-   def draw(self):
-      # draw the tile as a filled square
       stddraw.setPenColor(self.background_color)
       stddraw.filledSquare(self.position.x, self.position.y, 0.5)
       # draw the bounding box of the tile as a square

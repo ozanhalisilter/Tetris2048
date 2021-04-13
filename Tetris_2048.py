@@ -28,6 +28,7 @@ def start():
    next_tetromino = create_tetromino(grid_h, grid_w)
 
    grid.current_tetromino = current_tetromino
+   grid.next_tetromino = next_tetromino
 
    # display a simple menu before opening the game
    display_game_menu(grid_h, grid_w+5)
@@ -80,6 +81,8 @@ def start():
          grid.current_tetromino = current_tetromino
          print("next tetromino:")
          next_tetromino = create_tetromino(grid_h, grid_w)
+         grid.next_tetromino = next_tetromino
+         next_tetromino.draw_dummy()
 
       # display the game grid and as well the current tetromino      
       grid.display()

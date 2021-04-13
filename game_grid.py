@@ -33,6 +33,7 @@ class GameGrid:
       stddraw.setPenColor(stddraw.WHITE)
       stddraw.text(self.grid_width+2, self.grid_height-12 , "next")
       # draw the game grid
+      self.next_tetromino.draw_dummy()
       self.draw_grid()
       # draw the current (active) tetromino
       if self.current_tetromino != None:
