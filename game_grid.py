@@ -117,11 +117,14 @@ class GameGrid:
       return self.game_over
 
    def check_grid(self):
+      rows=[]
       print(self.tile_matrix)
       for row in range(self.grid_width):
          if None not in self.tile_matrix[row]:
             self.delete_row(row)
             self.move_row(row)
+            self.check_grid()
+
 
    def delete_row(self,row):
       print("----------BEFORE----------")
