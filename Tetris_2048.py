@@ -20,6 +20,9 @@ def canvas():
    stddraw.setXscale(-0.5, grid_w + 4.5)
    stddraw.setYscale(-0.5, grid_h - 0.5)
 
+   # display a simple menu before opening the game
+   display_game_menu(grid_h, grid_w+5)
+
 def start():
 
    
@@ -34,8 +37,6 @@ def start():
    grid.current_tetromino = current_tetromino
    grid.next_tetromino = next_tetromino
 
-   # display a simple menu before opening the game
-   display_game_menu(grid_h, grid_w+5)
    pause = False
    # main game loop (keyboard interaction for moving the tetromino) 
    while True:
