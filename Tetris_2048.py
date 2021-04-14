@@ -40,44 +40,47 @@ def start():
       if stddraw.hasNextKeyTyped():
          key_typed = stddraw.nextKeyTyped()
          # if the left arrow key has been pressed
-         if key_typed == "left":
-            # move the tetromino left by one
-            print("Left Typed")
-            current_tetromino.move(key_typed, grid) 
-         # if the right arrow key has been pressed
-         elif key_typed == "right":
-            print("Right Typed")
-            # move the tetromino right by one
-            current_tetromino.move(key_typed, grid)
-         # if the down arrow key has been pressed
-         elif key_typed == "down":
-
-            # move the tetromino down by one 
-            # (causes the tetromino to fall down faster)
-            current_tetromino.move(key_typed, grid)
-         # piece drop
-         elif key_typed =='space':
-            for i in range(grid_h):
-               current_tetromino.move('down',grid)
-
-
-         # Speed Increase
-         elif key_typed=='w':
-            if grid.delta_time > 50:
-               grid.delta_time -= 40
-         # Speed Decrease
-         elif key_typed=='s':
-            if grid.delta_time > 50:
-               grid.delta_time += 40
-         # Pause
-
-         elif key_typed=='y':
+         if key_typed=='y':
             print("Pause")
             if pause == False:
                pause = True
             else:
                pause = False
 
+         elif not pause:
+            if key_typed == "left":
+               # move the tetromino left by one
+               print("Left Typed")
+               current_tetromino.move(key_typed, grid)
+            # if the right arrow key has been pressed
+            elif key_typed == "right":
+               print("Right Typed")
+               # move the tetromino right by one
+               current_tetromino.move(key_typed, grid)
+            # if the down arrow key has been pressed
+            elif key_typed == "down":
+
+               # move the tetromino down by one
+               # (causes the tetromino to fall down faster)
+               current_tetromino.move(key_typed, grid)
+            # piece drop
+            elif key_typed =='space':
+               for i in range(grid_h):
+                  current_tetromino.move('down',grid)
+            # Speed Increase
+            elif key_typed=='w':
+               if grid.delta_time > 50:
+                  grid.delta_time -= 40
+            # Speed Decrease
+            elif key_typed=='s':
+               if grid.delta_time > 50:
+                  grid.delta_time += 40
+            # Pause
+
+
+         elif key_typed=='r':
+            print("restart")
+            start()
 
 
 
