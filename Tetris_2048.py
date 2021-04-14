@@ -32,7 +32,7 @@ def start():
 
    # display a simple menu before opening the game
    display_game_menu(grid_h, grid_w+5)
-   
+   pause = False
    # main game loop (keyboard interaction for moving the tetromino) 
    while True:
 
@@ -69,6 +69,17 @@ def start():
          elif key_typed=='s':
             if grid.delta_time > 50:
                grid.delta_time += 40
+         # Pause
+
+         elif key_typed=='y':
+            print("Pause")
+            if pause == False:
+               pause = True
+            else:
+               pause = False
+
+
+
 
          elif key_typed=='up':
             current_tetromino.rotate()
@@ -77,12 +88,13 @@ def start():
          stddraw.clearKeysTyped()
 
 
-      # move (drop) the tetromino down by 1 at each iteration 
-      success = current_tetromino.move("down", grid)
+      # move (drop) the tetromino down by 1 at each iteration
+      if not pause:
+         success = current_tetromino.move("down", grid)
 
 
       # place the tetromino on the game grid when it cannot go down anymore
-      if not success:
+      if not success and not pause:
          # get the tile matrix of the tetromino
          tiles_to_place = current_tetromino.tile_matrix
          # update the game grid by adding the tiles of the tetromino
