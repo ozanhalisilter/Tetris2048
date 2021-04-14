@@ -36,11 +36,10 @@ def start():
 
    grid.current_tetromino = current_tetromino
    grid.next_tetromino = next_tetromino
-
+   stddraw.clearKeysTyped()
    pause = False
    # main game loop (keyboard interaction for moving the tetromino) 
    while True:
-
       # check user interactions via the keyboard
       if stddraw.hasNextKeyTyped():
          key_typed = stddraw.nextKeyTyped()
@@ -114,9 +113,10 @@ def start():
          game_over = grid.update_grid(tiles_to_place)
          # end the main game loop if the game is over
          if game_over:
-            if display_game_over(grid_h,grid_w):
+            if display_game_over(grid_h,grid_w+5):
                pause = True
                start()
+
 
          # create the next tetromino to enter the game grid
          # by using the create_tetromino function defined below
