@@ -9,8 +9,9 @@ from color import Color # used for coloring the game menu
 # MAIN FUNCTION OF THE PROGRAM
 #-------------------------------------------------------------------------------
 # Main function where this program starts execution
-def start():
+def canvas():
    # set the dimensions of the game grid
+   global grid_h, grid_w
    grid_h, grid_w = 18, 12
    # set the size of the drawing canvas
    canvas_h, canvas_w = 40 * grid_h, 60 * grid_w
@@ -18,6 +19,9 @@ def start():
    # set the scale of the coordinate system
    stddraw.setXscale(-0.5, grid_w + 4.5)
    stddraw.setYscale(-0.5, grid_h - 0.5)
+
+def start():
+
    
    # create the game grid
    grid = GameGrid(grid_h, grid_w)
@@ -82,8 +86,8 @@ def start():
                current_tetromino.rotate()
                print("up")
 
-
-         elif key_typed=='r':
+         # TODO Restart
+         if key_typed=='r':
             print("restart")
             start()
 
@@ -184,4 +188,5 @@ def display_game_menu(grid_height, grid_width):
 # start() function is specified as the entry point (main function) from which 
 # the program starts execution
 if __name__== '__main__':
+   canvas()
    start()
