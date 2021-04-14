@@ -39,7 +39,8 @@ def start():
       # check user interactions via the keyboard
       if stddraw.hasNextKeyTyped():
          key_typed = stddraw.nextKeyTyped()
-         # if the left arrow key has been pressed
+
+         # Pause
          if key_typed=='y':
             print("Pause")
             if pause == False:
@@ -48,6 +49,7 @@ def start():
                pause = False
 
          elif not pause:
+            # if the left arrow key has been pressed
             if key_typed == "left":
                # move the tetromino left by one
                print("Left Typed")
@@ -75,7 +77,10 @@ def start():
             elif key_typed=='s':
                if grid.delta_time > 50:
                   grid.delta_time += 40
-            # Pause
+            # TODO  Rotate (NOT FUNCTIONAL)
+            elif key_typed == 'up':
+               current_tetromino.rotate()
+               print("up")
 
 
          elif key_typed=='r':
@@ -84,9 +89,7 @@ def start():
 
 
 
-         elif key_typed=='up':
-            current_tetromino.rotate()
-            print("up")
+
          # clear the queue that stores all the keys pressed/typed
          stddraw.clearKeysTyped()
 
