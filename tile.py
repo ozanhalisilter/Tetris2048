@@ -88,3 +88,10 @@ class Tile:
       stddraw.setFontFamily(Tile.font_family)
       stddraw.setFontSize(Tile.font_size)
       stddraw.boldText(self.position.x, self.position.y, str(self.number))
+
+
+def main():
+   pass
+
+if __name__ == '__main__':
+    main()
