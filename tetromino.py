@@ -86,6 +86,9 @@ class Tetromino:
       self.bottom_left_corner.x = random.randint(0, grid_width - n)
       # create each tile by computing its position w.r.t. the game grid based on 
       # its bottom_left_corner
+
+
+
       for i in range(len(occupied_tiles)):
          col_index, row_index = occupied_tiles[i][0], occupied_tiles[i][1]
          position = Point()
@@ -158,9 +161,10 @@ class Tetromino:
    def rotate(self):
       print("----ROTATE----")
       n = len(self.tile_matrix)
-      center = self.center()
-      cx = center[0]
-      cy = center[1]
+
+      # Calculating Center
+      cx = self.bottom_left_corner.x + n/2
+      cy = self.bottom_left_corner.y + n/2
       for row in range(n):
          for col in range(n):
             if self.tile_matrix[row][col]!=None:
@@ -197,9 +201,16 @@ class Tetromino:
          center=self.tile_matrix[1][1].get_position()
          center_array.append(center.x)
          center_array.append(center.y)
-      stddraw.circle(center_array[0],center_array[1],0.3)
-      return center_array
 
+      return center_array
+   def center_draw(self):
+
+      n = len(self.tile_matrix)  # n = number of rows = number of columns
+      for row in range(n):
+         for col in range(n):
+            # draw each occupied tile (not equal to None) on the game grid
+            if self.tile_matrix[row][col] != None:
+               self.tile_matrix[row][col].draw()
    # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
