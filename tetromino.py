@@ -128,7 +128,7 @@ class Tetromino:
       # can_be_moved method defined below
       # get center
       self.center()
-      print(self.center())
+
       if not(self.can_be_moved(direction, game_grid)):
          return False  # tetromino cannot be moved in the given direction
       # move the tetromino by first updating the position of the bottom left tile 
@@ -143,12 +143,17 @@ class Tetromino:
       for row in range(n):
          for col in range(n):
             if self.tile_matrix[row][col] != None:
+
                if direction == "left":
                   self.tile_matrix[row][col].move(-1, 0)
                elif direction == "right":
                   self.tile_matrix[row][col].move(1, 0)
                else: # direction == "down"
                   self.tile_matrix[row][col].move(0, -1)
+               print("x:", self.tile_matrix[row][col].get_position().x, "y:",
+                     self.tile_matrix[row][col].get_position().y)
+
+      print(self.center())
       return True  # successful move in the given direction
    def rotate(self):
       n = len(self.tile_matrix)
@@ -156,15 +161,15 @@ class Tetromino:
          for col in range(n):
             if self.tile_matrix[row][col]!=None:
                position=self.tile_matrix[row][col].get_position()
-               dx=float(self.center()[0]-position.x)
+               dx=self.center()[0]-position.x
                print(dx)
-
                dy=self.center()[1]-position.y
                print(dy)
-               dx_c=dy
-               dy_c=-dx
-               self.tile_matrix[row][col].get_position().x=self.center()[0]+dx_c
-               self.tile_matrix[row][col].get_position().y=self.center()[1]+dy_c
+               dx_c=self.center()[0]-dy
+               dy_c=self.center()[1]+dx
+               new_position=Point(int(dx_c),int(dy_c))
+               self.tile_matrix[row][col].set_position(new_position)
+
 
 
    #calculate center according to coming tetromino type
