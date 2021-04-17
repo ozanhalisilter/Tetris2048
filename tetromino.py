@@ -156,17 +156,21 @@ class Tetromino:
       print(self.center())
       return True  # successful move in the given direction
    def rotate(self):
+      print("----ROTATE----")
       n = len(self.tile_matrix)
+      center = self.center()
+      cx = center[0]
+      cy = center[1]
       for row in range(n):
          for col in range(n):
             if self.tile_matrix[row][col]!=None:
                position=self.tile_matrix[row][col].get_position()
-               dx=self.center()[0]-position.x
+               dx=cx-position.x
                print(dx)
-               dy=self.center()[1]-position.y
+               dy=cy-position.y
                print(dy)
-               dx_c=self.center()[0]-dy
-               dy_c=self.center()[1]+dx
+               dx_c=cx-dy
+               dy_c=cy+dx
                new_position=Point(int(dx_c),int(dy_c))
                self.tile_matrix[row][col].set_position(new_position)
 
@@ -193,6 +197,7 @@ class Tetromino:
          center=self.tile_matrix[1][1].get_position()
          center_array.append(center.x)
          center_array.append(center.y)
+      stddraw.circle(center_array[0],center_array[1],0.3)
       return center_array
 
    # Method to check if the tetromino can be moved in the given direction or not

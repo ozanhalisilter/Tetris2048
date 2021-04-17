@@ -83,6 +83,7 @@ def start():
                   grid.delta_time += 40
             # TODO  Rotate (NOT FUNCTIONAL)
             elif key_typed == 'e':
+               current_tetromino.center()
                current_tetromino.rotate()
 
             # TODO  GameOver
@@ -134,10 +135,12 @@ def start():
 
 # Function for creating random shaped tetrominoes to enter the game grid
 def create_tetromino(grid_height, grid_width):
+
    # type (shape) of the tetromino is determined randomly
    tetromino_types = [ "S", "T","J",'L','O','Z','I']
+
    # test with O's
-   tetromino_types = ['O','O','I']
+   tetromino_types = ['O']
    random_index = random.randint(0, len(tetromino_types) - 1)
    random_type = tetromino_types[random_index]
    # create and return the tetromino
