@@ -82,9 +82,8 @@ def start():
                if grid.delta_time > 50:
                   grid.delta_time += 40
             # TODO  Rotate (NOT FUNCTIONAL)
-            elif key_typed == 'up':
+            elif key_typed == 'e':
                current_tetromino.rotate()
-               print("up")
             # TODO  GameOver
 
 

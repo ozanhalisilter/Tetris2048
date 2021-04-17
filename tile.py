@@ -83,6 +83,9 @@ class Tile:
       stddraw.setPenRadius(Tile.boundary_thickness)
       stddraw.square(self.position.x, self.position.y, 0.5)
       stddraw.setPenRadius()  # reset the pen radius to its default value
+      stddraw.setPenColor(stddraw.RED)
+      stddraw.filledCircle(0.5, 0.5, 0.3)
+      stddraw.filledCircle(-0.5,0.5,0.3)
       # draw the number on the tile
       stddraw.setPenColor(self.foreground_color)
       stddraw.setFontFamily(Tile.font_family)

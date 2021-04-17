@@ -1,5 +1,7 @@
 import math
 import random # each tetromino is created with a random x value above the grid
+
+import stddraw
 from tile import Tile # used for representing each tile on the tetromino
 from point import Point # used for tile positions
 import numpy as np # fundamental Python module for scientific computing
@@ -124,6 +126,9 @@ class Tetromino:
    def move(self, direction, game_grid):
       # check if the tetromino can be moved in the given direction by using the
       # can_be_moved method defined below
+      # get center
+      self.center()
+      print(self.center())
       if not(self.can_be_moved(direction, game_grid)):
          return False  # tetromino cannot be moved in the given direction
       # move the tetromino by first updating the position of the bottom left tile 
@@ -149,8 +154,40 @@ class Tetromino:
       n = len(self.tile_matrix)
       for row in range(n):
          for col in range(n):
-            pass
+            if self.tile_matrix[row][col]!=None:
+               position=self.tile_matrix[row][col].get_position()
+               dx=float(self.center()[0]-position.x)
+               print(dx)
+               dy=self.center()[1]-position.y
+               print(dy)
+               dx_c=dy
+               dy_c=-dx
+               self.tile_matrix[row][col].get_position().x=self.center()[0]+dx_c
+               self.tile_matrix[row][col].get_position().y=self.center()[1]+dy_c
 
+
+   #calculate center according to coming tetromino type
+   def center(self):
+      center_array=[]
+      stddraw.setPenColor(stddraw.RED)
+      print("t IS",self.type)
+      if self.type=="I":
+         center=self.tile_matrix[1][1].get_position()
+         center.x=float(center.x+0.5)
+         center.y=float(center.y-0.5)
+         center_array.append(center.x)
+         center_array.append(center.y)
+      if self.type=="O":
+         center=self.tile_matrix[0][0].get_position()
+         center.x=float(center.x+0.5)
+         center.y=float(center.y-0.5)
+         center_array.append(center.x)
+         center_array.append(center.y)
+      if self.type=="S"or self.type=="Z"or self.type=="T" or self.type=="L" or self.type=="J":
+         center=self.tile_matrix[1][1].get_position()
+         center_array.append(center.x)
+         center_array.append(center.y)
+      return center_array
 
    # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
