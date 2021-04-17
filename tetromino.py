@@ -158,6 +158,7 @@ class Tetromino:
                position=self.tile_matrix[row][col].get_position()
                dx=float(self.center()[0]-position.x)
                print(dx)
+
                dy=self.center()[1]-position.y
                print(dy)
                dx_c=dy

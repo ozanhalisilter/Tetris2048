@@ -84,6 +84,7 @@ def start():
             # TODO  Rotate (NOT FUNCTIONAL)
             elif key_typed == 'e':
                current_tetromino.rotate()
+
             # TODO  GameOver
 
 

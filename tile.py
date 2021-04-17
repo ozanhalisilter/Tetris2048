@@ -45,6 +45,7 @@ class Tile:
    def move(self, dx, dy):
       self.position.translate(dx, dy)
 
+
    # Method for drawing the tile
    def draw(self):
       # draw the tile as a filled square
