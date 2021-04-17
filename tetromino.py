@@ -129,8 +129,6 @@ class Tetromino:
    def move(self, direction, game_grid):
       # check if the tetromino can be moved in the given direction by using the
       # can_be_moved method defined below
-      # get center
-      self.center()
 
       if not(self.can_be_moved(direction, game_grid)):
          return False  # tetromino cannot be moved in the given direction
@@ -161,10 +159,10 @@ class Tetromino:
    def rotate(self):
       print("----ROTATE----")
       n = len(self.tile_matrix)
-
+      print()
       # Calculating Center
-      cx = self.bottom_left_corner.x + n/2
-      cy = self.bottom_left_corner.y + n/2
+      cx = self.bottom_left_corner.x + n/2 - 0.5
+      cy = self.bottom_left_corner.y + n/2 - 0.5
       for row in range(n):
          for col in range(n):
             if self.tile_matrix[row][col]!=None:
