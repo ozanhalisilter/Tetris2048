@@ -154,7 +154,7 @@ class Tetromino:
                print("x:", self.tile_matrix[row][col].get_position().x, "y:",
                      self.tile_matrix[row][col].get_position().y)
 
-      print(self.center())
+
       return True  # successful move in the given direction
    def rotate(self):
       print("----ROTATE----")
@@ -175,7 +175,7 @@ class Tetromino:
                dy_c=cy+dx
                new_position=Point(int(dx_c),int(dy_c))
                self.tile_matrix[row][col].set_position(new_position)
-
+      self.tile_matrix = np.rot90(self.tile_matrix)
 
 
    #calculate center according to coming tetromino type
@@ -248,8 +248,10 @@ class Tetromino:
                   break  # end the inner for loop
       # direction = down --> check the bottommost tile of each column
       else:
+         lowest = self.grid_height
+         low_tetromino = None
          for col in range(n):
-            for row in range(n - 1, -1, -1):
+            for row in range(n-1 , 0, -1):
                if self.tile_matrix[row][col] != None:
                   bottommost = self.tile_matrix[row][col].get_position()
                   # skip each column whose bottommost tile is out of the grid 
