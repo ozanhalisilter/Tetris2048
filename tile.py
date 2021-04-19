@@ -21,8 +21,8 @@ class Tile:
       # set the colors of the tile
 
 
-      self.foreground_color = Color(0, 100, 200) # foreground (number) color
-      self.boundary_color = Color(0, 100, 200) # boundary (box) color
+      self.foreground_color = Color(167, 153, 140) # foreground (number) color
+      self.boundary_color = Color(167, 153, 140) # boundary (box) color
       # set the position of the tile as the given position
       self.position = Point(position.x, position.y)
    def __repr__(self):
@@ -84,9 +84,28 @@ class Tile:
       stddraw.setPenRadius(Tile.boundary_thickness)
       stddraw.square(self.position.x, self.position.y, 0.5)
       stddraw.setPenRadius()  # reset the pen radius to its default value
-      stddraw.setPenColor(stddraw.RED)
-      stddraw.filledCircle(0.5, 0.5, 0.3)
-      stddraw.filledCircle(-0.5,0.5,0.3)
+
+      # draw inner lines
+      x = self.position.x
+      y = self.position.y
+      stddraw.setPenColor(self.foreground_color)
+      stddraw.square(x,y,0.3)
+      stddraw.setPenRadius(Tile.boundary_thickness)
+
+      stddraw.line(x-0.5,y-0.5,x+0.5,y+0.5)
+      stddraw.line(x-0.5,y+0.5,x+0.5,y-0.5)
+
+      #draw inner box
+      stddraw.setPenRadius()
+      stddraw.setPenColor(self.background_color)
+      stddraw.filledSquare(self.position.x, self.position.y, 0.3)
+
+
+      ###############################
+      #stddraw.setPenColor(stddraw.RED)
+      #stddraw.filledCircle(0.5, 0.5, 0.3)
+      #stddraw.filledCircle(-0.5,0.5,0.3)
+
       # draw the number on the tile
       stddraw.setPenColor(self.foreground_color)
       stddraw.setFontFamily(Tile.font_family)
@@ -94,7 +113,19 @@ class Tile:
       stddraw.boldText(self.position.x, self.position.y, str(self.number))
 
 
-def main():
+def main(): # Test method
+
+   grid_h, grid_w = 18, 12
+   # set the size of the drawing canvas
+   canvas_h, canvas_w = 40 * grid_h, 60 * grid_w
+   stddraw.setCanvasSize(canvas_w, canvas_h)
+   # set the scale of the coordinate system
+   stddraw.setXscale(-0.5, grid_w + 4.5)
+   stddraw.setYscale(-0.5, grid_h - 0.5)
+
+   obj = Tile(Point(2,4))
+   obj.draw()
+   stddraw.show()
    pass
 
 if __name__ == '__main__':
