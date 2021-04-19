@@ -216,7 +216,7 @@ class Tetromino:
          for row in range(n):
             for col in range(n): 
                # direction = left --> check the leftmost tile of each row
-               if dir == "left" and self.tile_matrix[row][col] != None:
+               if dir == "left" and self.tile_matrix[row][col] is not None:
                   leftmost = self.tile_matrix[row][col].get_position()
                   # tetromino cannot go left if any leftmost tile is at x = 0
                   if leftmost.x == 0:
