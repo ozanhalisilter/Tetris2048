@@ -83,7 +83,7 @@ def start():
                   grid.delta_time += 40
             # TODO  Rotate (NOT FUNCTIONAL)
             elif key_typed == 'e':
-               current_tetromino.center()
+
                current_tetromino.rotate()
 
             # TODO  GameOver

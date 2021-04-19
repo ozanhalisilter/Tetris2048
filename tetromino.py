@@ -159,7 +159,11 @@ class Tetromino:
    def rotate(self):
       print("----ROTATE----")
       n = len(self.tile_matrix)
-      print()
+      print(self.tile_matrix)
+      print("----AFTER ROTATION-----")
+
+      self.tile_matrix = np.rot90(self.tile_matrix,3)
+      print(self.tile_matrix)
       # Calculating Center
       cx = self.bottom_left_corner.x + n/2 - 0.5
       cy = self.bottom_left_corner.y + n/2 - 0.5
@@ -168,14 +172,12 @@ class Tetromino:
             if self.tile_matrix[row][col]!=None:
                position=self.tile_matrix[row][col].get_position()
                dx=cx-position.x
-               print(dx)
                dy=cy-position.y
-               print(dy)
                dx_c=cx-dy
                dy_c=cy+dx
                new_position=Point(int(dx_c),int(dy_c))
                self.tile_matrix[row][col].set_position(new_position)
-      self.tile_matrix = np.rot90(self.tile_matrix)
+
 
 
    #calculate center according to coming tetromino type
