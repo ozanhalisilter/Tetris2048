@@ -213,6 +213,7 @@ class Tetromino:
                self.tile_matrix[row][col].draw()
    # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
+      #TODO LEFT RIGHT CHECK
       n = len(self.tile_matrix)  # n = number of rows = number of columns
       if dir == "left" or dir == "right":
          for row in range(n):

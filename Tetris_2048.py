@@ -81,15 +81,14 @@ def start():
             elif key_typed=='s':
                if grid.delta_time > 50:
                   grid.delta_time += 40
-            # TODO  Rotate (NOT FUNCTIONAL)
-            elif key_typed == 'e':
 
+            elif key_typed == 'e':
                current_tetromino.rotate()
 
-            # TODO  GameOver
 
 
-         # TODO Restart
+
+
          if key_typed=='r':
             print("restart")
             start()
