@@ -1,7 +1,7 @@
 import stddraw # the stddraw module is used as a basic graphics library
 from color import Color # used for coloring the game grid
 import numpy as np # fundamental Python module for scientific computing
-
+import time
 # Class used for modelling the game grid
 class GameGrid:
 	# Constructor for creating the game grid based on the given arguments
@@ -144,6 +144,36 @@ class GameGrid:
             if self.tile_matrix[row_i][col_i] != None:
                self.tile_matrix[row_i][col_i].move(0,-1)
 
+   def tile_matrix_print(self,tile_matrix):
+      for row in tile_matrix:
+         for tile in row:
+            if tile == None:
+               print(".", end=" ")
+            else:
+               print(tile, end=" ")
+         print()
+   def move_column(self,col,row):
+      for row_i in range(row,self.grid_height):
+         if self.tile_matrix[row_i][col] != None:
+            print('-----MOVING-----')
+            print('row_i',row_i,col)
+            print("number",self.tile_matrix[row_i][col].number)
+
+            print('====BEFORE=====')
+            self.tile_matrix_print(self.tile_matrix)
+            time.sleep(5)
+            self.tile_matrix[row_i][col].move(0,-1)
+
+            print('====AFTER====')
+            self.tile_matrix_print(self.tile_matrix)
+            print('===================')
+
+            self.tile_matrix_print(self.tile_matrix)
+      transposed = self.tile_matrix.transpose()
+      deleted = np.delete(transposed[col],row)
+      transposed[col] = np.append(deleted,[None],axis=0)
+      self.tile_matrix = transposed.transpose()
+
    def delete_tile(self):
       for row_i in range(1,self.grid_height-1):
          for col_i in range(1,self.grid_width-1):
@@ -158,6 +188,7 @@ class GameGrid:
                if self.tile_matrix[row_i][col_i].number == self.tile_matrix[row_i+1][col_i].number:
                   self.tile_matrix[row_i][col_i].double()
                   self.tile_matrix[row_i+1][col_i] = None
+                  self.move_column(col_i,row_i+1)
                   print('------------------------------------')
                   print(row_i,col_i,self.tile_matrix[row_i][col_i].number)
                   self.merge()
