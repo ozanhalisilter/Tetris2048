@@ -178,6 +178,7 @@ class GameGrid:
       transposed[col] = np.append(deleted,[None],axis=0)
       self.tile_matrix = transposed.transpose()
 
+   # FOUR CONNECTED TEST
    def delete_tile(self):
       for row_i in range(1,self.grid_height-1):
          for col_i in range(1,self.grid_width-1):
