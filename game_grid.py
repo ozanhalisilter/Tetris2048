@@ -144,6 +144,12 @@ class GameGrid:
             if self.tile_matrix[row_i][col_i] != None:
                self.tile_matrix[row_i][col_i].move(0,-1)
 
+   def delete_tile(self):
+      for row_i in range(1,self.grid_height-1):
+         for col_i in range(1,self.grid_width-1):
+            if self.tile_matrix[row_i][col_i] != None:
+               pass
+               #TODO Four Connected dependency check
 
    def merge(self):
       for row_i in range(self.grid_height-1):
