@@ -115,6 +115,10 @@ class GameGrid:
                else:
                   self.game_over = True
       # return the game_over flag
+
+      #check on each iteration
+      self.delete_tile()
+
       self.check_grid()
       self.merge()
       return self.game_over
@@ -178,7 +182,16 @@ class GameGrid:
       for row_i in range(1,self.grid_height-1):
          for col_i in range(1,self.grid_width-1):
             if self.tile_matrix[row_i][col_i] != None:
-               pass
+
+               if self.tile_matrix[row_i + 1][col_i] is None and \
+                 self.tile_matrix[row_i - 1][col_i] is None and \
+                 self.tile_matrix[row_i][col_i + 1] is None and \
+                 self.tile_matrix[row_i][col_i - 1] is None:
+                  print('--------4connected-------')
+                  self.tile_matrix[row_i][col_i] = None
+
+                  self.delete_tile()
+
                #TODO Four Connected dependency check
 
    def merge(self):
