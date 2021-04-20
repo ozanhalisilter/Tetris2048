@@ -151,8 +151,8 @@ class Tetromino:
                   self.tile_matrix[row][col].move(1, 0)
                else: # direction == "down"
                   self.tile_matrix[row][col].move(0, -1)
-               print("x:", self.tile_matrix[row][col].get_position().x, "y:",
-                     self.tile_matrix[row][col].get_position().y)
+               #print("x:", self.tile_matrix[row][col].get_position().x, "y:",
+                     #self.tile_matrix[row][col].get_position().y)
 
 
       return True  # successful move in the given direction
