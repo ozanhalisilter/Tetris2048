@@ -5,7 +5,7 @@ import stddraw
 from tile import Tile # used for representing each tile on the tetromino
 from point import Point # used for tile positions
 import numpy as np # fundamental Python module for scientific computing
-print("sa")
+
 # Class used for representing tetrominoes with 3 out of 7 different types/shapes 
 # as (I, O and Z)
 class Tetromino:
