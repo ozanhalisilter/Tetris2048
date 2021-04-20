@@ -161,7 +161,7 @@ class GameGrid:
 
             print('====BEFORE=====')
             self.tile_matrix_print(self.tile_matrix)
-            time.sleep(5)
+
             self.tile_matrix[row_i][col].move(0,-1)
 
             print('====AFTER====')
