@@ -45,7 +45,7 @@ def start():
          key_typed = stddraw.nextKeyTyped()
 
          # Pause
-         if key_typed=='y':
+         if key_typed=='p':
             print("Pause")
             if pause == False:
                pause = True
