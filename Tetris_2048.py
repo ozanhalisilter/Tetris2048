@@ -85,15 +85,9 @@ def start():
             elif key_typed == 'e':
                current_tetromino.rotate()
 
-
-
-
-
          if key_typed=='r':
             print("restart")
             start()
-
-
 
 
          # clear the queue that stores all the keys pressed/typed
@@ -134,13 +128,10 @@ def start():
 
 # Function for creating random shaped tetrominoes to enter the game grid
 def create_tetromino(grid_height, grid_width):
-
    # type (shape) of the tetromino is determined randomly
-
-
    # test with O's
    tetromino_types = ['O']
-   tetromino_types = [ "S", "T","J",'L','O','Z','I']
+   #tetromino_types = [ "S", "T","J",'L','O','Z','I']
    random_index = random.randint(0, len(tetromino_types) - 1)
    random_type = tetromino_types[random_index]
    # create and return the tetromino

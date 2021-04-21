@@ -26,7 +26,8 @@ class GameGrid:
       # thickness values used for the grid lines and the grid boundaries 
       self.line_thickness = 0.002
       self.box_thickness = 8 * self.line_thickness
-
+      #sum score
+      self.sum = 0
    # Method used for displaying the game grid
    def display(self):
       # clear the background canvas to empty_cell_color
@@ -159,6 +160,14 @@ class GameGrid:
    def delete_row(self,row):
       print("----------BEFORE----------")
       print(self.tile_matrix)
+      #adding score to every tile
+      for i in range(self.grid_width):
+         newScore = self.tile_matrix[row][i].number
+         self.sum += newScore
+         print("Sum :",self.sum)
+
+
+
       self.tile_matrix = np.delete(self.tile_matrix,row,axis=0)
       self.tile_matrix = np.append(self.tile_matrix, np.reshape(np.full(self.grid_width,[None]),(-1,self.grid_width)),axis=0)
       print("----------AFTER------------")
