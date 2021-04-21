@@ -31,6 +31,29 @@ class GameGrid:
    def display(self):
       # clear the background canvas to empty_cell_color
       stddraw.clear(self.empty_cell_color)
+
+      # SCORE
+      stddraw.setFontSize(28)
+      stddraw.setPenColor(stddraw.WHITE)
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 1, "SCORE")
+      stddraw.rectangle(self.grid_width, self.grid_height - 3.5, 4, 2)
+
+      # Controls
+      stddraw.setFontSize(18)
+      stddraw.setPenColor(stddraw.DARK_GRAY)
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 6, "Controls")
+
+      stddraw.setFontSize(12)
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 7, "← Left Key the tetromino left by on")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 7.5, "→ Right Key the tetro right by on")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 8, "P to Pause")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 8.5, "E to Rotate")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 9, "W to Faster Down")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 9.5, "S to Slower Down")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 10, "R to Restrat ")
+
+
+
       stddraw.setFontSize(24)
       stddraw.setPenColor(stddraw.WHITE)
       stddraw.text(self.grid_width+2, self.grid_height-12 , "next")
