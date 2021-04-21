@@ -235,6 +235,8 @@ class GameGrid:
          for col_i in range(self.grid_width ):
             if self.tile_matrix[row_i][col_i] != None and self.tile_matrix[row_i+1][col_i] != None:
                if self.tile_matrix[row_i][col_i].number == self.tile_matrix[row_i+1][col_i].number:
+                  self.sum += self.tile_matrix[row_i][col_i].number*2
+                  print("merge sum:",self.sum)
                   self.tile_matrix[row_i][col_i].double()
                   self.tile_matrix[row_i+1][col_i] = None
                   self.move_column(col_i,row_i+1)
