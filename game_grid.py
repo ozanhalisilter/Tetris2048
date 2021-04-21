@@ -38,6 +38,7 @@ class GameGrid:
       stddraw.setPenColor(stddraw.WHITE)
       stddraw.boldText(self.grid_width + 2, self.grid_height - 1, "SCORE")
       stddraw.rectangle(self.grid_width, self.grid_height - 3.5, 4, 2)
+      stddraw.boldText(self.grid_width+2,self.grid_height-2.5,str(self.sum))
 
       # Controls
       stddraw.setFontSize(18)
@@ -162,7 +163,9 @@ class GameGrid:
       print(self.tile_matrix)
       #adding score to every tile
       for i in range(self.grid_width):
+
          newScore = self.tile_matrix[row][i].number
+         print("score:",newScore)
          self.sum += newScore
          print("Sum :",self.sum)
 
