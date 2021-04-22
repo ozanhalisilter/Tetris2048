@@ -40,6 +40,18 @@ def start():
    pause = False
    # main game loop (keyboard interaction for moving the tetromino) 
    while True:
+      mx, my= stddraw.getPosition()
+      tileX = grid.current_tetromino.bottom_left_corner.x
+      mx = mx // 40 - 1
+      print(mx,tileX)
+
+      if mx > tileX:
+         for i in range(mx-tileX):
+            grid.current_tetromino.move("right",grid)
+      elif mx < tileX:
+         for i in range(tileX-mx):
+            grid.current_tetromino.move("left", grid)
+
       # check user interactions via the keyboard
       if stddraw.hasNextKeyTyped():
          key_typed = stddraw.nextKeyTyped()
@@ -79,7 +91,7 @@ def start():
                   grid.delta_time -= 40
             # Speed Decrease
             elif key_typed=='s':
-               if grid.delta_time > 50:
+               if grid.delta_time < 500:
                   grid.delta_time += 40
 
             elif key_typed == 'e':
@@ -130,8 +142,8 @@ def start():
 def create_tetromino(grid_height, grid_width):
    # type (shape) of the tetromino is determined randomly
    # test with O's
-   tetromino_types = ['O']
-   #tetromino_types = [ "S", "T","J",'L','O','Z','I']
+   #tetromino_types = ['O']
+   tetromino_types = [ "S", "T","J",'L','O','Z','I']
    random_index = random.randint(0, len(tetromino_types) - 1)
    random_type = tetromino_types[random_index]
    # create and return the tetromino
