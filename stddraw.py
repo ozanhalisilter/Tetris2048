@@ -645,6 +645,9 @@ def _checkForEvents():
     
     _makeSureWindowCreated()
 
+    global mx,my
+    mx,my = pygame.mouse.get_pos()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -710,7 +713,9 @@ def mousePressed():
         _mousePressed = False
         return True
     return False
-    
+
+def getPosition():
+    return pygame.mouse.get_pos()
 def mouseX():
     """
     Return the x coordinate in user space of the location at
@@ -720,7 +725,7 @@ def mouseX():
     """
     global _mousePos
     if _mousePos:
-        return _userX(_mousePos[0])      
+        return _userX(_mousePos[0])
     raise Exception(
         "Can't determine mouse position if a click hasn't happened")
     
@@ -733,7 +738,7 @@ def mouseY():
     """
     global _mousePos
     if _mousePos:
-        return _userY(_mousePos[1]) 
+        return _userY(_mousePos[1])
     raise Exception(
         "Can't determine mouse position if a click hasn't happened")
     
