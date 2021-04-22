@@ -42,7 +42,7 @@ def start():
    while True:
       mx, my= stddraw.getPosition()
       tileX = grid.current_tetromino.bottom_left_corner.x
-      ax = int(mx / 42.35)
+      ax = int(mx / 42.35) - 1
       print(ax,tileX)
 
       if ax > tileX:
