@@ -16,8 +16,11 @@ class GameGrid:
       self.next_tetromino = None
       # game_over flag shows whether the game is over/completed or not
       self.game_over = False
-      self.delta_time = 250
+      self.delta_time = 300
       # set the color used for the empty grid cells
+
+      #mouse position
+      self.position = stddraw.getPosition()
 
       self.empty_cell_color = Color(205, 192, 180) #CHANGED Color(42, 69, 99)
       # set the colors used for the grid lines and the grid boundaries
@@ -25,7 +28,7 @@ class GameGrid:
       self.boundary_color = Color(147, 133, 120)
       # thickness values used for the grid lines and the grid boundaries 
       self.line_thickness = 0.002
-      self.box_thickness = 8 * self.line_thickness
+      self.box_thickness = 4 * self.line_thickness
       #sum score
       self.sum = 0
    # Method used for displaying the game grid
@@ -50,10 +53,10 @@ class GameGrid:
       stddraw.boldText(self.grid_width + 2, self.grid_height - 7.5, "→ Right Key the tetro right by on")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 8, "P to Pause")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 8.5, "E to Rotate")
-      stddraw.boldText(self.grid_width + 2, self.grid_height - 9, "W to Faster Down")
-      stddraw.boldText(self.grid_width + 2, self.grid_height - 9.5, "S to Slower Down")
-      stddraw.boldText(self.grid_width + 2, self.grid_height - 10, "R to Restrat ")
-
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 9, "Current Speed: {:.2f}".format((1/self.delta_time)*1000))
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 9.5, "W to Faster Down")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 10, "S to Slower Down")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 10.5, "R to Restart ")
 
 
       stddraw.setFontSize(24)
@@ -168,8 +171,6 @@ class GameGrid:
          print("score:",newScore)
          self.sum += newScore
          print("Sum :",self.sum)
-
-
 
       self.tile_matrix = np.delete(self.tile_matrix,row,axis=0)
       self.tile_matrix = np.append(self.tile_matrix, np.reshape(np.full(self.grid_width,[None]),(-1,self.grid_width)),axis=0)
