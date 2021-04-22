@@ -158,26 +158,38 @@ class Tetromino:
       return True  # successful move in the given direction
    def rotate(self):
       print("----ROTATE----")
+      can_rot=True
       n = len(self.tile_matrix)
       print(self.tile_matrix)
       print("----AFTER ROTATION-----")
-
-      self.tile_matrix = np.rot90(self.tile_matrix,3)
       print(self.tile_matrix)
       # Calculating Center
       cx = self.bottom_left_corner.x + n/2 - 0.5
       cy = self.bottom_left_corner.y + n/2 - 0.5
       for row in range(n):
          for col in range(n):
-            if self.tile_matrix[row][col]!=None:
-               position=self.tile_matrix[row][col].get_position()
-               dx=cx-position.x
-               dy=cy-position.y
-               dx_c=cx-dy
-               dy_c=cy+dx
-               new_position=Point(int(dx_c),int(dy_c))
-               self.tile_matrix[row][col].set_position(new_position)
+            if can_rot:
+               if self.tile_matrix[row][col]!=None:
+                  position=self.tile_matrix[row][col].get_position()
+                  dx=cx-position.x
+                  dy=cy-position.y
+                  dx_c=cx-dy
+                  dy_c=cy+dx
+                  new_position = Point(int(dx_c), int(dy_c))
+                  can_rot=self.can_rotate(new_position)
+                  if can_rot:
+                     self.tile_matrix[row][col].set_position(new_position)
+      if can_rot:
+         self.tile_matrix = np.rot90(self.tile_matrix,3)
 
+
+   def can_rotate(self,pos):
+      if pos.x<0:
+         return False
+      if pos.x>=self.grid_width:
+         return False
+      else:
+         return True
 
 
    #calculate center according to coming tetromino type
@@ -213,7 +225,6 @@ class Tetromino:
                self.tile_matrix[row][col].draw()
    # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
-      #TODO LEFT RIGHT CHECK
       n = len(self.tile_matrix)  # n = number of rows = number of columns
       if dir == "left" or dir == "right":
          for row in range(n):
