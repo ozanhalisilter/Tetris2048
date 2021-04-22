@@ -42,14 +42,14 @@ def start():
    while True:
       mx, my= stddraw.getPosition()
       tileX = grid.current_tetromino.bottom_left_corner.x
-      mx = mx // 40 - 1
-      print(mx,tileX)
+      ax = int(mx / 42.35)
+      print(ax,tileX)
 
-      if mx > tileX:
-         for i in range(mx-tileX):
+      if ax > tileX:
+         for i in range(ax-tileX):
             grid.current_tetromino.move("right",grid)
-      elif mx < tileX:
-         for i in range(tileX-mx):
+      elif ax < tileX:
+         for i in range(tileX-ax):
             grid.current_tetromino.move("left", grid)
 
       # check user interactions via the keyboard
