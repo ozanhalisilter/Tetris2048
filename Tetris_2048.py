@@ -97,6 +97,9 @@ def start():
             elif key_typed == 'e':
                current_tetromino.rotate()
 
+            elif key_typed=='q':
+               current_tetromino.rotate_ccw()
+
          if key_typed=='r':
             print("restart")
             start()
