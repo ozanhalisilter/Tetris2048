@@ -157,9 +157,12 @@ class Tetromino:
 
       return True  # successful move in the given direction
    def rotate(self):
+      #array of positions (nasıl initialize edildiğini bilmiyorum bakmaya da üşendim :p)
       new_position=[0,0,0,0]
       print("----ROTATE----")
+      #counter to check if all can rotate
       counter=0
+      #second counter for holding an array of positions
       counter_2=0
       n = len(self.tile_matrix)
       print(self.tile_matrix)
@@ -177,20 +180,30 @@ class Tetromino:
                   dx_c=cx-dy
                   dy_c=cy+dx
                   print(counter_2)
+                  #array holds 4 points
                   new_position[counter_2] = Point(int(dx_c), int(dy_c))
                   can_rot=self.can_rotate(new_position[counter_2])
+                  #increment counter_2
                   counter_2=counter_2+1
+                  #if tile can rotate
                   if can_rot:
+                     #increment counter
                      counter=counter+1
+      #set counter_2 to 0
       counter_2=0
       for row in range(n):
          for col in range(n):
             if self.tile_matrix[row][col] != None:
+               #if all tiles can rotate
                if counter==4:
+                  #change positions
                   self.tile_matrix[row][col].set_position(new_position[counter_2])
                   counter_2=counter_2+1
+      #change tile matrix if all tiles can rotate
       if counter==4:
          self.tile_matrix = np.rot90(self.tile_matrix, 3)
+# Ekstra not: muhtemelen can_rotate i
+# daha güzel yazabilirsek countera ihtiyaç duymadan da halledebiliriz ama şimdilik oldu gibi
 
 
 
