@@ -157,8 +157,10 @@ class Tetromino:
 
       return True  # successful move in the given direction
    def rotate(self):
+      new_position=[0,0,0,0]
       print("----ROTATE----")
-      can_rot=True
+      counter=0
+      counter_2=0
       n = len(self.tile_matrix)
       print(self.tile_matrix)
       print("----AFTER ROTATION-----")
@@ -168,19 +170,27 @@ class Tetromino:
       cy = self.bottom_left_corner.y + n/2 - 0.5
       for row in range(n):
          for col in range(n):
-            if can_rot:
                if self.tile_matrix[row][col]!=None:
                   position=self.tile_matrix[row][col].get_position()
                   dx=cx-position.x
                   dy=cy-position.y
                   dx_c=cx-dy
                   dy_c=cy+dx
-                  new_position = Point(int(dx_c), int(dy_c))
-                  can_rot=self.can_rotate(new_position)
+                  print(counter_2)
+                  new_position[counter_2] = Point(int(dx_c), int(dy_c))
+                  can_rot=self.can_rotate(new_position[counter_2])
+                  counter_2=counter_2+1
                   if can_rot:
-                     self.tile_matrix[row][col].set_position(new_position)
-      if can_rot:
-         self.tile_matrix = np.rot90(self.tile_matrix,3)
+                     counter=counter+1
+      counter_2=0
+      for row in range(n):
+         for col in range(n):
+            if self.tile_matrix[row][col] != None:
+               if counter==4:
+                  self.tile_matrix[row][col].set_position(new_position[counter_2])
+                  counter_2=counter_2+1
+      if counter==4:
+         self.tile_matrix = np.rot90(self.tile_matrix, 3)
 
 
 
