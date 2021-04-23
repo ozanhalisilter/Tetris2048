@@ -95,10 +95,10 @@ def start():
                   grid.delta_time += 40
 
             elif key_typed == 'e':
-               current_tetromino.rotate()
+               current_tetromino.rotate(grid)
 
             elif key_typed=='q':
-               current_tetromino.rotate_ccw()
+               current_tetromino.rotate_ccw(grid)
 
          if key_typed=='r':
             print("restart")
@@ -147,7 +147,7 @@ def start():
 def create_tetromino(grid_height, grid_width):
    # type (shape) of the tetromino is determined randomly
    # test with O's
-   #tetromino_types = ['O']
+   #tetromino_types = ['I']
    tetromino_types = [ "S", "T","J",'L','O','Z','I']
    random_index = random.randint(0, len(tetromino_types) - 1)
    random_type = tetromino_types[random_index]

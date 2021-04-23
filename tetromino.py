@@ -159,7 +159,7 @@ class Tetromino:
 
       return True  # successful move in the given direction
 
-   def rotate_ccw(self):
+   def rotate_ccw(self,game_grid):
       #array of positions (nasıl initialize edildiğini bilmiyorum bakmaya da üşendim :p)
       new_position=[0,0,0,0]
       print("----ROTATE----")
@@ -185,7 +185,7 @@ class Tetromino:
                   print(counter_2)
                   #array holds 4 points
                   new_position[counter_2] = Point(int(dx_c), int(dy_c))
-                  can_rot=self.can_rotate(new_position[counter_2])
+                  can_rot=self.can_rotate(new_position[counter_2],game_grid)
                   #increment counter_2
                   counter_2=counter_2+1
                   #if tile can rotate
@@ -208,7 +208,7 @@ class Tetromino:
          self.tile_matrix = np.rot90(self.tile_matrix, 3)
          self.tile_matrix = np.rot90(self.tile_matrix, 3)
 
-   def rotate(self):
+   def rotate(self,game_grid):
       #array of positions (nasıl initialize edildiğini bilmiyorum bakmaya da üşendim :p)
       new_position=[0,0,0,0]
       print("----ROTATE----")
@@ -234,7 +234,7 @@ class Tetromino:
                   print(counter_2)
                   #array holds 4 points
                   new_position[counter_2] = Point(int(dx_c), int(dy_c))
-                  can_rot=self.can_rotate(new_position[counter_2])
+                  can_rot=self.can_rotate(new_position[counter_2],game_grid)
                   #increment counter_2
                   counter_2=counter_2+1
                   #if tile can rotate
@@ -259,10 +259,12 @@ class Tetromino:
 # daha güzel yazmaktan kastim 4 pozisyonu da aynı anda alması
 
 
-   def can_rotate(self,pos):
+   def can_rotate(self,pos,game_grid):
       if pos.x<0:
          return False
       if pos.x>=self.grid_width:
+         return False
+      if game_grid.is_occupied(pos.y,pos.x):
          return False
       else:
          return True
