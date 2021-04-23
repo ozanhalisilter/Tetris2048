@@ -204,7 +204,7 @@ class Tetromino:
          self.tile_matrix = np.rot90(self.tile_matrix, 3)
 # Ekstra not: muhtemelen can_rotate i
 # daha güzel yazabilirsek countera ihtiyaç duymadan da halledebiliriz ama şimdilik oldu gibi
-
+# daha güzel yazmaktan kastim 4 pozisyonu da aynı anda alması
 
 
    def can_rotate(self,pos):
