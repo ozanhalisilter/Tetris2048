@@ -270,16 +270,6 @@ class Tetromino:
          return True
 
 
-
-   def center_draw(self):
-
-      n = len(self.tile_matrix)  # n = number of rows = number of columns
-      for row in range(n):
-         for col in range(n):
-            # draw each occupied tile (not equal to None) on the game grid
-            if self.tile_matrix[row][col] != None:
-               self.tile_matrix[row][col].draw()
-   # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
       if dir == "left" or dir == "right":
