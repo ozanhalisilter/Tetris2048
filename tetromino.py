@@ -270,29 +270,7 @@ class Tetromino:
          return True
 
 
-   #calculate center according to coming tetromino type
-   def center(self):
-      center_array=[]
-      stddraw.setPenColor(stddraw.RED)
-      print("t IS",self.type)
-      if self.type=="I":
-         center=self.tile_matrix[1][1].get_position()
-         center.x=float(center.x+0.5)
-         center.y=float(center.y-0.5)
-         center_array.append(center.x)
-         center_array.append(center.y)
-      if self.type=="O":
-         center=self.tile_matrix[0][0].get_position()
-         center.x=float(center.x+0.5)
-         center.y=float(center.y-0.5)
-         center_array.append(center.x)
-         center_array.append(center.y)
-      if self.type=="S"or self.type=="Z"or self.type=="T" or self.type=="L" or self.type=="J":
-         center=self.tile_matrix[1][1].get_position()
-         center_array.append(center.x)
-         center_array.append(center.y)
 
-      return center_array
    def center_draw(self):
 
       n = len(self.tile_matrix)  # n = number of rows = number of columns
