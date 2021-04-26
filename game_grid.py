@@ -225,8 +225,9 @@ class GameGrid:
                  self.tile_matrix[row_i][col_i + 1] is None and \
                  self.tile_matrix[row_i][col_i - 1] is None:
                   print('--------4connected-------')
+                  newScore = self.tile_matrix[row_i][col_i].number
+                  self.sum += newScore
                   self.tile_matrix[row_i][col_i] = None
-
                   #Recursive
                   self.delete_tile()
 
