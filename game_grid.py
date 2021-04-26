@@ -227,9 +227,9 @@ class GameGrid:
                   print('--------4connected-------')
                   self.tile_matrix[row_i][col_i] = None
 
+                  #Recursive
                   self.delete_tile()
 
-               #TODO Four Connected dependency check
 
    def merge(self):
       for row_i in range(self.grid_height-1):

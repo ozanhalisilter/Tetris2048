@@ -254,8 +254,11 @@ class Tetromino:
       #change tile matrix if all tiles can rotate
       if counter==4:
          self.tile_matrix = np.rot90(self.tile_matrix, 3)
+# Ekstra not: muhtemelen can_rotate i
+# daha güzel yazabilirsek countera ihtiyaç duymadan da halledebiliriz ama şimdilik oldu gibi
+# daha güzel yazmaktan kastim 4 pozisyonu da aynı anda alması
 
-   #method to check if rotation is possible
+
    def can_rotate(self,pos,game_grid):
       if pos.x<0:
          return False
@@ -267,9 +270,6 @@ class Tetromino:
          return True
 
 
-
-
-   # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
       if dir == "left" or dir == "right":
