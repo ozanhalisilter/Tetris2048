@@ -32,7 +32,7 @@ class GameGrid:
       #sum score
       self.total_score = 0
    # Method used for displaying the game grid
-   def display(self):
+   def display(self,pause):
       # clear the background canvas to empty_cell_color
       stddraw.clear(self.empty_cell_color)
       # SCORE
@@ -71,6 +71,11 @@ class GameGrid:
       # draw a box around the game grid 
       self.draw_boundaries()
       # show the resulting drawing with a pause duration = 250 ms
+
+      if(pause):
+         stddraw.setPenColor(stddraw.BLACK)
+         stddraw.setFontSize(32)
+         stddraw.text(self.grid_width/2,self.grid_height/2,"Game is Paused")
       stddraw.show(self.delta_time)
          
    # Method for drawing the cells and the lines of the grid

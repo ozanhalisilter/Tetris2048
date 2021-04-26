@@ -145,7 +145,7 @@ def start():
          next_tetromino.draw_dummy()
 
       # display the game grid and as well the current tetromino      
-      grid.display()
+      grid.display(pause)
 
    print("Game over")
 
