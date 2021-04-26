@@ -40,17 +40,7 @@ def start():
    pause = False
    # main game loop (keyboard interaction for moving the tetromino) 
    while True:
-      mx, my= stddraw.getPosition()
-      tileX = grid.current_tetromino.bottom_left_corner.x
-      ax = int(mx / 42.35) - 1
-      print(ax,tileX)
 
-      if ax > tileX:
-         for i in range(ax-tileX):
-            grid.current_tetromino.move("right",grid)
-      elif ax < tileX:
-         for i in range(tileX-ax):
-            grid.current_tetromino.move("left", grid)
 
       # check user interactions via the keyboard
       if stddraw.hasNextKeyTyped():
@@ -60,12 +50,25 @@ def start():
          if key_typed=='p':
             #TODO Pause Menu
             print("Pause")
-            if pause == False:
-               pause = True
-            else:
+            if pause:
                pause = False
+            else:
+               pause = True
 
          elif not pause:
+
+            mx, my = stddraw.getPosition()
+            tileX = grid.current_tetromino.bottom_left_corner.x
+            ax = int(mx / 42.35) - 1
+            print(ax, tileX)
+
+            if ax > tileX:
+               for i in range(ax - tileX):
+                  grid.current_tetromino.move("right", grid)
+            elif ax < tileX:
+               for i in range(tileX - ax):
+                  grid.current_tetromino.move("left", grid)
+
             # if the left arrow key has been pressed
             if key_typed == "left":
                # move the tetromino left by one
