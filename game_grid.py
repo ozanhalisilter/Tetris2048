@@ -30,7 +30,7 @@ class GameGrid:
       self.line_thickness = 0.002
       self.box_thickness = 4 * self.line_thickness
       #sum score
-      self.sum = 0
+      self.total_score = 0
    # Method used for displaying the game grid
    def display(self):
       # clear the background canvas to empty_cell_color
@@ -40,7 +40,7 @@ class GameGrid:
       stddraw.setPenColor(stddraw.WHITE)
       stddraw.boldText(self.grid_width + 2, self.grid_height - 1, "SCORE")
       stddraw.rectangle(self.grid_width, self.grid_height - 3.5, 4, 2)
-      stddraw.boldText(self.grid_width+2,self.grid_height-2.5,str(self.sum))
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 2.5, str(self.total_score))
 
       # Controls
       stddraw.setFontSize(18)
@@ -168,8 +168,8 @@ class GameGrid:
 
          newScore = self.tile_matrix[row][i].number
          print("score:",newScore)
-         self.sum += newScore
-         print("Sum :",self.sum)
+         self.total_score += newScore
+         print("Sum :", self.total_score)
 
       self.tile_matrix = np.delete(self.tile_matrix,row,axis=0)
       self.tile_matrix = np.append(self.tile_matrix, np.reshape(np.full(self.grid_width,[None]),(-1,self.grid_width)),axis=0)
@@ -225,7 +225,7 @@ class GameGrid:
                  self.tile_matrix[row_i][col_i - 1] is None:
                   print('--------4connected-------')
                   newScore = self.tile_matrix[row_i][col_i].number
-                  self.sum += newScore
+                  self.total_score += newScore
                   self.tile_matrix[row_i][col_i] = None
                   #Recursive
                   self.delete_tile()
@@ -236,8 +236,8 @@ class GameGrid:
          for col_i in range(self.grid_width ):
             if self.tile_matrix[row_i][col_i] != None and self.tile_matrix[row_i+1][col_i] != None:
                if self.tile_matrix[row_i][col_i].number == self.tile_matrix[row_i+1][col_i].number:
-                  self.sum += self.tile_matrix[row_i][col_i].number*2
-                  print("merge sum:",self.sum)
+                  self.total_score += self.tile_matrix[row_i][col_i].number * 2
+                  print("merge sum:", self.total_score)
                   self.tile_matrix[row_i][col_i].double()
                   self.tile_matrix[row_i+1][col_i] = None
                   self.move_column(col_i,row_i+1)
