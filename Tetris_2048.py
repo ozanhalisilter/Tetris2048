@@ -60,7 +60,6 @@ def start():
 
          # Pause
          if key_typed=='p':
-            #TODO Pause Menu
             print("Pause")
             if pause:
                pause = False
@@ -109,8 +108,7 @@ def start():
          if key_typed=='r':
             print("restart")
             start()
-         #TODO pause menüsünde mouse trackikng kapanacak
-         #todo pause GUI
+
 
 
          # clear the queue that stores all the keys pressed/typed
