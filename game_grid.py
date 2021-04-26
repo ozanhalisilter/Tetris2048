@@ -35,7 +35,6 @@ class GameGrid:
    def display(self):
       # clear the background canvas to empty_cell_color
       stddraw.clear(self.empty_cell_color)
-
       # SCORE
       stddraw.setFontSize(28)
       stddraw.setPenColor(stddraw.WHITE)
@@ -76,6 +75,7 @@ class GameGrid:
          
    # Method for drawing the cells and the lines of the grid
    def draw_grid(self):
+      self.delete_tile()
       # draw each cell of the game grid
       for row in range(self.grid_height):
          for col in range(self.grid_width):
@@ -145,7 +145,6 @@ class GameGrid:
       # return the game_over flag
 
       #check on each iteration
-      self.delete_tile()
 
       self.check_grid()
       self.merge()
