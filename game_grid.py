@@ -249,3 +249,40 @@ class GameGrid:
                   print('------------------------------------')
                   print(row_i,col_i,self.tile_matrix[row_i][col_i].number)
                   self.merge()
+
+   def move2(self):
+      #it change this look
+
+      if not (self.current_tetromino):
+         return False
+
+      if memoryview =="left":
+         print("S")
+
+      else:
+         self.tile_matrix =2
+
+      print("Rotata")
+
+      cy = self.sum
+      cx = self.game_over
+
+
+      def merge(self):
+         i = 0
+         for row_i in range(self.grid_width - 1):
+            for col_i in range(len(self-1)):
+               if i ==2:
+                  return True
+
+
+
+
+
+
+
+
+
+
+
+
