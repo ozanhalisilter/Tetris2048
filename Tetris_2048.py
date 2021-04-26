@@ -13,6 +13,10 @@ from color import Color # used for coloring the game menu
 
 
 
+#sa
+
+
+
 def canvas():
    # set the dimensions of the game grid
    global grid_h, grid_w
