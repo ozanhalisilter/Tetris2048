@@ -254,11 +254,8 @@ class Tetromino:
       #change tile matrix if all tiles can rotate
       if counter==4:
          self.tile_matrix = np.rot90(self.tile_matrix, 3)
-# Ekstra not: muhtemelen can_rotate i
-# daha güzel yazabilirsek countera ihtiyaç duymadan da halledebiliriz ama şimdilik oldu gibi
-# daha güzel yazmaktan kastim 4 pozisyonu da aynı anda alması
 
-
+   #method to check if rotation is possible
    def can_rotate(self,pos,game_grid):
       if pos.x<0:
          return False
@@ -270,37 +267,8 @@ class Tetromino:
          return True
 
 
-   #calculate center according to coming tetromino type
-   def center(self):
-      center_array=[]
-      stddraw.setPenColor(stddraw.RED)
-      print("t IS",self.type)
-      if self.type=="I":
-         center=self.tile_matrix[1][1].get_position()
-         center.x=float(center.x+0.5)
-         center.y=float(center.y-0.5)
-         center_array.append(center.x)
-         center_array.append(center.y)
-      if self.type=="O":
-         center=self.tile_matrix[0][0].get_position()
-         center.x=float(center.x+0.5)
-         center.y=float(center.y-0.5)
-         center_array.append(center.x)
-         center_array.append(center.y)
-      if self.type=="S"or self.type=="Z"or self.type=="T" or self.type=="L" or self.type=="J":
-         center=self.tile_matrix[1][1].get_position()
-         center_array.append(center.x)
-         center_array.append(center.y)
 
-      return center_array
-   def center_draw(self):
 
-      n = len(self.tile_matrix)  # n = number of rows = number of columns
-      for row in range(n):
-         for col in range(n):
-            # draw each occupied tile (not equal to None) on the game grid
-            if self.tile_matrix[row][col] != None:
-               self.tile_matrix[row][col].draw()
    # Method to check if the tetromino can be moved in the given direction or not
    def can_be_moved(self, dir, game_grid):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
