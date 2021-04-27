@@ -161,15 +161,15 @@ class Tetromino:
 
    def rotate_ccw(self,game_grid):
       new_position=[0,0,0,0]
-      print("----ROTATE----")
+      # print("----ROTATE----")
       #counter to check if all can rotate
       counter=0
       #second counter for holding an array of positions
       counter_2=0
       n = len(self.tile_matrix)
-      print(self.tile_matrix)
-      print("----AFTER ROTATION-----")
-      print(self.tile_matrix)
+      # print(self.tile_matrix)
+      # print("----AFTER ROTATION-----")
+      # print(self.tile_matrix)
       # Calculating Center
       cx = self.bottom_left_corner.x + n/2 - 0.5
       cy = self.bottom_left_corner.y + n/2 - 0.5
@@ -181,7 +181,7 @@ class Tetromino:
                   dy=cy-position.y
                   dx_c=cx+dy
                   dy_c=cy-dx
-                  print(counter_2)
+                  # print(counter_2)
                   #array holds 4 points
                   new_position[counter_2] = Point(int(dx_c), int(dy_c))
                   can_rot=self.can_rotate(new_position[counter_2],game_grid)
@@ -209,15 +209,15 @@ class Tetromino:
 
    def rotate(self,game_grid):
       new_position=[0,0,0,0]
-      print("----ROTATE----")
+      # print("----ROTATE----")
       #counter to check if all can rotate
       counter=0
       #second counter for holding an array of positions
       counter_2=0
       n = len(self.tile_matrix)
-      print(self.tile_matrix)
-      print("----AFTER ROTATION-----")
-      print(self.tile_matrix)
+      # print(self.tile_matrix)
+      # print("----AFTER ROTATION-----")
+      # print(self.tile_matrix)
       # Calculating Center
       cx = self.bottom_left_corner.x + n/2 - 0.5
       cy = self.bottom_left_corner.y + n/2 - 0.5
@@ -229,7 +229,7 @@ class Tetromino:
                   dy=cy-position.y
                   dx_c=cx-dy
                   dy_c=cy+dx
-                  print(counter_2)
+                  # print(counter_2)
                   #array holds 4 points
                   new_position[counter_2] = Point(int(dx_c), int(dy_c))
                   can_rot=self.can_rotate(new_position[counter_2],game_grid)
