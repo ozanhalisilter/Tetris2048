@@ -248,52 +248,6 @@ def display_game_over(grid_height, grid_width):
                return True
                  # break the loop to end the method and start the game
 
-#DISPLAY PAUSE MENU
-def display_pause_menu(grid_height, grid_width):
-   background_color = Color(42, 69, 99)
-   button_color = Color(25, 255, 228)
-   text_color = Color(31, 160, 239)
-   # clear the background canvas to background_color
-   stddraw.clear(background_color)
-
-   # get the directory in which this python code file is placed
-   current_dir = os.path.dirname(os.path.realpath(__file__))
-   # path of the image file
-   img_file = current_dir + "/menu_image.png"
-   # center coordinates to display the image
-   img_center_x, img_center_y = (grid_width - 1) / 2, grid_height - 7
-   # image is represented using the Picture class
-   image_to_display = Picture(img_file)
-   # display the image
-   stddraw.picture(image_to_display, img_center_x, img_center_y)
-   # dimensions of the start game button
-   button_w, button_h = grid_width - 1.5, 2
-   # coordinates of the bottom left corner of the start game button
-   button_blc_x, button_blc_y = img_center_x - button_w / 2, 4
-   # display the start game button as a filled rectangle
-   stddraw.setPenColor(button_color)
-   stddraw.filledRectangle(button_blc_x, button_blc_y, button_w, button_h)
-   # display the text on the start game button
-   stddraw.setFontFamily("Arial")
-   stddraw.setFontSize(25)
-   stddraw.setPenColor(text_color)
-   text_to_display = "Pause"
-   stddraw.text(img_center_x, 5, text_to_display)
-   # menu interaction loop
-   while True:
-      # display the menu and wait for a short time (50 ms)
-      stddraw.show(50)
-      # check if the mouse has been left-clicked
-      if stddraw.mousePressed():
-         # get the x and y coordinates of the location at which the mouse has
-         # most recently been left-clicked
-         mouse_x, mouse_y = stddraw.mouseX(), stddraw.mouseY()
-         if mouse_x >= button_blc_x and mouse_x <= button_blc_x + button_w:
-            if mouse_y >= button_blc_y and mouse_y <= button_blc_y + button_h:
-               return True
-                 # break the loop to end the method and start the game
-
-
 
 # start() function is specified as the entry point (main function) from which 
 # the program starts execution
