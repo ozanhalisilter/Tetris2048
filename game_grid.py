@@ -56,6 +56,7 @@ class GameGrid:
       stddraw.boldText(self.grid_width + 2, self.grid_height - 9.5, "W to Faster Down")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 10, "S to Slower Down")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 10.5, "R to Restart ")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 11,"Space to drop tetromino")
 
 
       stddraw.setFontSize(24)
