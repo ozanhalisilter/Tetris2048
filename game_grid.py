@@ -157,7 +157,7 @@ class GameGrid:
       return self.game_over
 
    def check_grid(self):
-      print(self.tile_matrix)
+      # print(self.tile_matrix)
       for row in range(self.grid_width):
          if None not in self.tile_matrix[row]:
             self.delete_row(row)
@@ -167,21 +167,21 @@ class GameGrid:
 
 
    def delete_row(self,row):
-      print("----------BEFORE----------")
-      print(self.tile_matrix)
+      # print("----------BEFORE----------")
+      # print(self.tile_matrix)
       #adding score to every tile
       for i in range(self.grid_width):
 
          newScore = self.tile_matrix[row][i].number
-         print("score:",newScore)
+         # print("score:",newScore)
          self.total_score += newScore
-         print("Sum :", self.total_score)
+         # print("Sum :", self.total_score)
 
       self.tile_matrix = np.delete(self.tile_matrix,row,axis=0)
       self.tile_matrix = np.append(self.tile_matrix, np.reshape(np.full(self.grid_width,[None]),(-1,self.grid_width)),axis=0)
-      print("----------AFTER------------")
-      print(self.tile_matrix)
-      print("------------------------------")
+      # print("----------AFTER------------")
+      # print(self.tile_matrix)
+      # print("------------------------------")
 
    def move_row(self,row):
       for row_i in range(row,self.grid_height):
@@ -200,20 +200,20 @@ class GameGrid:
    def move_column(self,col,row):
       for row_i in range(row,self.grid_height):
          if self.tile_matrix[row_i][col] != None:
-            print('-----MOVING-----')
-            print('row_i',row_i,col)
-            print("number",self.tile_matrix[row_i][col].number)
-
-            print('====BEFORE=====')
-            self.tile_matrix_print(self.tile_matrix)
+            # print('-----MOVING-----')
+            # print('row_i',row_i,col)
+            # print("number",self.tile_matrix[row_i][col].number)
+            #
+            # print('====BEFORE=====')
+            # self.tile_matrix_print(self.tile_matrix)
 
             self.tile_matrix[row_i][col].move(0,-1)
 
-            print('====AFTER====')
-            self.tile_matrix_print(self.tile_matrix)
-            print('===================')
-
-            self.tile_matrix_print(self.tile_matrix)
+            # print('====AFTER====')
+            # self.tile_matrix_print(self.tile_matrix)
+            # print('===================')
+            #
+            # self.tile_matrix_print(self.tile_matrix)
       transposed = self.tile_matrix.transpose()
       deleted = np.delete(transposed[col],row)
       transposed[col] = np.append(deleted,[None],axis=0)
@@ -229,7 +229,7 @@ class GameGrid:
                  self.tile_matrix[row_i - 1][col_i] is None and \
                  self.tile_matrix[row_i][col_i + 1] is None and \
                  self.tile_matrix[row_i][col_i - 1] is None:
-                  print('--------4connected-------')
+                  # print('--------4connected-------')
                   newScore = self.tile_matrix[row_i][col_i].number
                   self.total_score += newScore
                   self.tile_matrix[row_i][col_i] = None
@@ -243,12 +243,12 @@ class GameGrid:
             if self.tile_matrix[row_i][col_i] != None and self.tile_matrix[row_i+1][col_i] != None:
                if self.tile_matrix[row_i][col_i].number == self.tile_matrix[row_i+1][col_i].number:
                   self.total_score += self.tile_matrix[row_i][col_i].number * 2
-                  print("merge sum:", self.total_score)
+                  # print("merge sum:", self.total_score)
                   self.tile_matrix[row_i][col_i].double()
                   self.tile_matrix[row_i+1][col_i] = None
                   self.move_column(col_i,row_i+1)
-                  print('------------------------------------')
-                  print(row_i,col_i,self.tile_matrix[row_i][col_i].number)
+                  # print('------------------------------------')
+                  # print(row_i,col_i,self.tile_matrix[row_i][col_i].number)
                   self.merge()
 
    def move2(self):

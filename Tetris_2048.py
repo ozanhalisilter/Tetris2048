@@ -31,7 +31,7 @@ def start():
    # create the first tetromino to enter the game grid 
    # by using the create_tetromino function defined below
    current_tetromino = create_tetromino(grid_h, grid_w)
-   print("next tetromino:")
+   # print("next tetromino:")
    next_tetromino = create_tetromino(grid_h, grid_w)
 
    grid.current_tetromino = current_tetromino
@@ -45,7 +45,7 @@ def start():
          mx, my = stddraw.getPosition()
          tileX = grid.current_tetromino.bottom_left_corner.x
          ax = int(mx / 42.35) - 1
-         print(ax, tileX)
+         # print(ax, tileX)
 
          if ax > tileX:
             for i in range(ax - tileX):
@@ -73,11 +73,11 @@ def start():
             # if the left arrow key has been pressed
             if key_typed == "left":
                # move the tetromino left by one
-               print("Left Typed")
+               # print("Left Typed")
                current_tetromino.move(key_typed, grid)
             # if the right arrow key has been pressed
             elif key_typed == "right":
-               print("Right Typed")
+               # print("Right Typed")
                # move the tetromino right by one
                current_tetromino.move(key_typed, grid)
             # if the down arrow key has been pressed
