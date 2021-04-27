@@ -51,7 +51,7 @@ class GameGrid:
       stddraw.boldText(self.grid_width + 2, self.grid_height - 7, "← Left Key the tetromino left by on")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 7.5, "→ Right Key the tetro right by on")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 8, "P to Pause")
-      stddraw.boldText(self.grid_width + 2, self.grid_height - 8.5, "E to Rotate")
+      stddraw.boldText(self.grid_width + 2, self.grid_height - 8.5, "E/Q to Rotate")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 9, "Current Speed: {:.2f}".format((1/self.delta_time)*1000))
       stddraw.boldText(self.grid_width + 2, self.grid_height - 9.5, "W to Faster Down")
       stddraw.boldText(self.grid_width + 2, self.grid_height - 10, "S to Slower Down")
