@@ -25,7 +25,7 @@ def canvas():
 
 def start():
 
-   
+   global grid
    # create the game grid
    grid = GameGrid(grid_h, grid_w)
    # create the first tetromino to enter the game grid 
@@ -232,7 +232,8 @@ def display_game_over(grid_height, grid_width):
    stddraw.setFontSize(25)
    stddraw.setPenColor(text_color)
    text_to_display = "Game Over"
-   stddraw.text(img_center_x, 5, text_to_display)
+   stddraw.text(img_center_x, 5.5, text_to_display)
+   stddraw.text(img_center_x,4.5, "Score : "+ str(grid.total_score))
    # menu interaction loop
    while True:
       # display the menu and wait for a short time (50 ms)
